@@ -21,12 +21,11 @@ public class CrateMover9000{
             System. out. print("\033[H\033[2J");
             System. out. flush();
             CrateStacksLogig.moveCrate(m);
-            System.out.println("Move: " + counter++ + "( "+ m +" ) \n ");
-            DrawStacks.drawStacks(stacksCreater.stacks);
-            Thread.sleep(180);
-
+            System.out.println("\033[0;33m Move: " + counter++ + "( "+ m +" ) \n ");
         }
-        
+        DrawStacks.drawStacks(stacksCreater.stacks);
+        System.out.println();
+        DrawStacks.printResult(stacksCreater.stacks);
     }
 
 }

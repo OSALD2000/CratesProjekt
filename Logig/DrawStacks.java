@@ -10,7 +10,7 @@ public class DrawStacks {
         for(int i = 0; i<= wiederholung ; i++){
             for(CrateStack crateStack : stacks){
                 if(crateStack.getIndex()>= großesIndex){
-                    System.out.print(crateStack.getStack()[großesIndex] + " ");
+                    System.out.print("\033[0;37m"+crateStack.getStack()[großesIndex] + " ");
                 }else{
                     System.out.print("    ");
                 }
@@ -20,7 +20,7 @@ public class DrawStacks {
         }
     } 
 
-    public static int getGroßesIndex(CrateStack[] stacks)
+    private static int getGroßesIndex(CrateStack[] stacks)
     {
         indexSortetList = new int[stacks.length];
         int counter =0;
@@ -36,5 +36,22 @@ public class DrawStacks {
             }
         }
         return großesInt;
+    }
+
+    public static void printResult(CrateStack[] stacks){
+        String firstResult ="";
+        String endResult="";
+        for(CrateStack cst : stacks){
+            firstResult= firstResult+""+cst.getStack()[cst.getIndex()];
+        }
+        for(char res : firstResult.toCharArray()){
+            if(!(res+"").equals("[")){
+                if(!(res+"").equals("]")){
+                    endResult=endResult+res;
+                }
+            }
+        }
+        endResult = endResult+"";
+        System.out.println("\033[0;31m"+endResult);
     }
 }
