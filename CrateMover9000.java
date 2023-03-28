@@ -11,6 +11,7 @@ public class CrateMover9000{
     public static void main(String[] args) throws InterruptedException, IOException {
         
         StacksCreater stacksCreater = new StacksCreater();
+        DrawStacks drawS = new DrawStacks();
         stacksCreater.stacksErsteller();
 
         MovesCreater movesCreater = new MovesCreater();
@@ -20,12 +21,13 @@ public class CrateMover9000{
         for(Move m : movesCreater.movesArray){
             System. out. print("\033[H\033[2J");
             System. out. flush();
-            CrateStacksLogig.moveCrate(m);
+            CrateStacksLogig.moveCrate(m , stacksCreater);
             System.out.println("\033[0;33m Move: " + counter++ + "( "+ m +" ) \n ");
+            drawS.drawStacks(stacksCreater.stacks);
+            Thread.sleep(200);
         }
-        DrawStacks.drawStacks(stacksCreater.stacks);
         System.out.println();
-        DrawStacks.printResult(stacksCreater.stacks);
+        drawS.printResult(stacksCreater.stacks);
     }
 
 }

@@ -4,8 +4,8 @@ import Module.CrateStack;
 public class DrawStacks {
     private static int[] indexSortetList;
 
-    public static void drawStacks(CrateStack[] stacks){
-        int großesIndex = getGroßesIndex(stacks);
+    public  void drawStacks(CrateStack[] stacks){
+        int großesIndex = this.getGroßesIndex(stacks);
         int wiederholung = großesIndex;
         for(int i = 0; i<= wiederholung ; i++){
             for(CrateStack crateStack : stacks){
@@ -20,7 +20,7 @@ public class DrawStacks {
         }
     } 
 
-    private static int getGroßesIndex(CrateStack[] stacks)
+    private  int getGroßesIndex(CrateStack[] stacks)
     {
         indexSortetList = new int[stacks.length];
         int counter =0;
@@ -38,7 +38,7 @@ public class DrawStacks {
         return großesInt;
     }
 
-    public static void printResult(CrateStack[] stacks){
+    public  void printResult(CrateStack[] stacks){
         String firstResult ="";
         String endResult="";
         for(CrateStack cst : stacks){
