@@ -1,4 +1,7 @@
 package Module;
+
+import javax.xml.catalog.Catalog;
+
 public class CrateStack {
     private int index;
     private int spalte;
@@ -28,10 +31,16 @@ public class CrateStack {
         this.stack=stack;
     }
 
-    public void add(String crate){
-        this.growifneded();
+    public void addOne(String crate){
+        this.growifneded7000();
         this.getStack()[index+1]=crate;
         this.index++;
+    }
+
+    public void addMulti(String[] crates){
+        for(String crate: crates){
+            this.addOne(crate);
+        }
     }
 
     public String pop(){
@@ -45,7 +54,7 @@ public class CrateStack {
 
     }
 
-    public void growifneded(){
+    public void growifneded7000(){
         if(this.index+1==this.getStack().length){
             String[] growedStack = new String[this.getStack().length*2];
             int inx = 0; 
