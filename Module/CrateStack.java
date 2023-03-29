@@ -1,7 +1,5 @@
 package Module;
 
-import javax.xml.catalog.Catalog;
-
 public class CrateStack {
     private int index;
     private int spalte;
